@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Subaru Car Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+            transition: background-color 0.3s;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            width: 300px;
+        }
+        .card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        .details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+        .card button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .card button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card" onclick="changeColors(this, '#ff0000')">
+            <img src="c:\Users\SANG\OneDrive\المستندات\AI\SUBARU.RED.jpg" alt="Subaru Outback">
+            <h3>Subaru WRX</h3>
+            <p>High-performance red Subaru WRX.</p>
+            <button onclick="toggleDetails(this)">More Details</button>
+            <div class="details">
+                <p><strong>Engine:</strong> 2.4L Turbocharged Boxer-4</p>
+                <p><strong>Horsepower:</strong> 271 HP</p>
+                <p><strong>Transmission:</strong> 6-speed manual / CVT</p>
+                <p><strong>Drivetrain:</strong> AWD</p>
+                <p><strong>Fuel Efficiency:</strong> 22 MPG City / 28 MPG Highway</p>
+                <p><strong>Features:</strong> Sport suspension, aggressive styling, high-performance braking.</p>
+            </div>
+        </div>
+        <div class="card" onclick="changeColors(this, '#0000ff')">
+            <img src="c:\Users\SANG\OneDrive\المستندات\AI\SUBARU.BLUE.jpg" alt="Subaru BRZ">
+            <h3>Subaru BRZ</h3>
+            <p>Elegant blue Subaru BRZ.</p>
+            <button onclick="toggleDetails(this)">More Details</button>
+            <div class="details">
+                <p><strong>Engine:</strong> 2.4L Naturally Aspirated Boxer-4</p>
+                <p><strong>Horsepower:</strong> 228 HP</p>
+                <p><strong>Transmission:</strong> 6-speed manual / 6-speed automatic</p>
+                <p><strong>Drivetrain:</strong> RWD</p>
+                <p><strong>Fuel Efficiency:</strong> 20 MPG City / 27 MPG Highway</p>
+                <p><strong>Features:</strong> Lightweight design, precision handling, sports-tuned chassis.</p>
+            </div>
+        </div>
+        <div class="card" onclick="changeColors(this, '#008000')">
+            <img src="c:\Users\SANG\OneDrive\المستندات\AI\SUBARUU.GREEN.jpg" alt="Subaru WRX">
+            <h3>Subaru Outback</h3>
+            <p>Adventure-ready green Subaru Outback.</p>
+            <button onclick="toggleDetails(this)">More Details</button>
+            <div class="details">
+                <p><strong>Engine:</strong> 2.5L Boxer-4 / 2.4L Turbocharged Boxer-4</p>
+                <p><strong>Horsepower:</strong> 182 HP / 260 HP</p>
+                <p><strong>Transmission:</strong> CVT</p>
+                <p><strong>Drivetrain:</strong> AWD</p>
+                <p><strong>Fuel Efficiency:</strong> 26 MPG City / 33 MPG Highway</p>
+                <p><strong>Features:</strong> Spacious interior, rugged design, X-MODE for off-road capability.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function changeColors(card, color) {
+            document.body.style.backgroundColor = color;
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(c => {
+                c.style.backgroundColor = c === card ? "white" : color;
+            });
+        }
+
+        function toggleDetails(button) {
+            const details = button.nextElementSibling;
+            if (details.style.maxHeight) {
+                details.style.maxHeight = null;
+            } else {
+                details.style.maxHeight = details.scrollHeight + "px";
+            }
+        }
+    </script>
+</body>
+</html>
